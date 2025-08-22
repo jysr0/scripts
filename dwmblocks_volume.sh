@@ -1,5 +1,7 @@
 #!/bin/sh
 
+#REQUIREMENTS: coreutils, pamixer, libnotify, dunst
+
 if [ "$(pamixer --get-mute)" == "true" ]; then
 	echo "VOL:  X" && notify-send -u low -t 2000 -a dunst "🔇 VOLUME MUTED"
 else	
