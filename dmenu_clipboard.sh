@@ -3,7 +3,7 @@
 # simple & minimal clipboard handler, thanks to <https://github.com/BreadOnPenguins>
 # requirements: 
 # 	-required programms: dmenu xclip
-# 	-optional but recommended: libnotify dunst
+# 	-optional: libnotify dunst
 # usage: when your clipboard is not empty excecute or bind this script to some shortcut to view your current and recently copied items
 # note: either empty selections or selections contain "\n -new line character-" only won't be copied to clipboard
 
