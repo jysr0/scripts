@@ -5,13 +5,13 @@
 # 	-required programms: dmenu xclip
 # 	-optional: libnotify dunst
 # usage: when your clipboard is not empty excecute or bind this script to some shortcut to view your current and recently copied items
-# note: either empty selections or selections contain "\n -new line character-" only won't be copied to clipboard
+# note: either empty selections or selections contain "\n -new line character-" only will appear as an empty selection in dmenu menu
 
 history_file="$HOME/.cache/clipboard.history"
 clipboard_content=$(xclip -o -selection clipboard 2> /dev/null)
 
 [ -f "$history_file" ] || notify-send -u low "'$history_file' created!" ; touch $history_file
-[ -z "$clipboard_content" ] && exit 0
+[ -z "$clipboard_content" ] 
 multi_line=$(echo "$clipboard_content" | sed ':a;N;$!ba;s/\n/'"<NEWLINE>"'/g')
 grep -qFx "$multi_line" "$history_file" || echo "$multi_line" >> "$history_file"
 
