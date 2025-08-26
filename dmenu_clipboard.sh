@@ -16,4 +16,4 @@ multi_line=$(echo "$clipboard_content" | sed ':a;N;$!ba;s/\n/'"<NEWLINE>"'/g')
 grep -qFx "$multi_line" "$history_file" || echo "$multi_line" >> "$history_file"
 
 dmenu_selection=$(tac "$history_file" | dmenu -l 8 -i -p '<esc> to quit | clipboard history:')
-[ -n "$dmenu_selection" ] && echo "$dmenu_selection" | sed 's/'"<NEWLINE>"'/\n/g' | xclip -i -r -selection clipboard && notify-send -u low "selection copied"
+[ -n "$dmenu_selection" ] && echo "$dmenu_selection" | sed 's/'"<NEWLINE>"'/\n/g' | xclip -r -selection clipboard && notify-send -u low "selection copied"
