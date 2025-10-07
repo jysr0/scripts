@@ -1,3 +1,3 @@
 #!/bin/sh
 
-echo "⏰ $(date '+%a • %b %d %Y • %R')"
+echo "⏰ $(date '+%R %a %b•%d•%Y')"
