@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [[ "$(pamixer --get-mute)" == "true" || "$(pamixer --get-volume-human)" == "0%" ]]; then
+if [[ "$(pamixer --get-mute)" == "true" ]]; then
 	echo "🔇 muted"
 else	
 	echo "🔊 $(pamixer --get-volume-human)"
