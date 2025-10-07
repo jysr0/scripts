@@ -1,11 +1,9 @@
 #!/bin/sh
 
-# requirements: pamixer , optional: libnotify
-
-if [[ "$(pamixer --get-mute)" == "true" ]]; then
-	echo "🔇" && notify-send "🔇 VOLUME MUTED"
+if [[ "$(pamixer --get-mute)" == "true" || "$(pamixer --get-volume-human)" == "0%" ]]; then
+	echo "🔇 muted"
 else	
-	echo "🔊 $(pamixer --get-volume)%"
+	echo "🔊 $(pamixer --get-volume-human)"
 fi
 
 
