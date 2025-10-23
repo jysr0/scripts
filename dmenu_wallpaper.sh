@@ -1,8 +1,6 @@
 #!/bin/sh
 
-# requirements: libnotify dunst dmenu xwallpaper
-
-[[ (-d $HOME/pictures) && (-d $HOME/pictures/wallpapers) ]] || exit 1
-[[ -d $HOME/.cache ]] || exit 1
-	wallpaper="$(ls -A $HOME/pictures/wallpapers | dmenu -l 10 -p '🌇 set wallpaper:')"
-	xwallpaper --stretch $HOME/pictures/wallpapers/$wallpaper && cp $HOME/pictures/wallpapers/$wallpaper $HOME/.cache/wallpaper
+[[ (-d $XDG_PICTURES_DIR) && (-d $XDG_PICTURES_DIR/walls) ]] || exit 1
+[[ -d $XDG_CACHE_HOME ]] || exit 1
+	wall="$(ls -A $XDG_PICTURES_DIR/walls | dmenu -l 10 -p '🌇 set wallpaper:')"
+	xwallpaper --stretch $XDG_PICTURES_DIR/walls/$wall && cp $XDG_PICTURES_DIR/walls/$wall $XDG_CACHE_HOME/wall
