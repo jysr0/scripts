@@ -1,8 +1,5 @@
 #!/bin/sh
-
-# requirements: xclip dmenu , optional: libnotify dunst
-
-file="dmenu_emojis.txt"
+file="dmenu emojis"
 [[ -f "$XDG_DOCUMENTS_DIR/$file" ]] || notify-send "$file file does not exist!"
 	emoji="$(cat $XDG_DOCUMENTS_DIR/$file | dmenu -i -l 10 -p 'copy emoji:')"
 	[[ -n "$emoji" ]] || exit 0
